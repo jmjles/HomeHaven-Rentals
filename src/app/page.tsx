@@ -1,14 +1,15 @@
 "use server";
 import RentalViewer from "@/components/rentalViewer/RentalViewer";
 import Nav from "@/layout/nav/Nav";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 
 export default async function Home() {
   return (
     <Grid
       container
       direction={"column"}
-      height="100vh"
+      minHeight={"100vh"}
+      height="100dvh"
       width={"100vw"}
       overflow={"hidden"}
       spacing={0}
