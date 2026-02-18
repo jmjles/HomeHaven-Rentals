@@ -19,8 +19,8 @@ const Nav = () => {
           <Grid>
             <Box
               position={"relative"}
-              height={{ xs: 50, sm: 65, md: 75 }}
-              width={{ xs: 125, sm: 140, md: 150}}
+              height={{ xs: 65, md: 75 }}
+              sx={{ aspectRatio: "70/41" }}
             >
               <Image src={logo} alt="HomeHaven Logo" fill />
             </Box>

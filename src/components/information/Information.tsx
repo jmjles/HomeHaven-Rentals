@@ -9,7 +9,7 @@ import {
 } from "@mui/icons-material";
 import { Typography as Font, Grid, Paper, Stack, Tooltip } from "@mui/material";
 import Highlight, { HighlightProps } from "../highlight/Highlight";
-import { toFormattedNumber } from "@/lib/utils";
+import { getAvailabilityText, toFormattedNumber } from "@/lib/utils";
 import Lease from "./Lease";
 import ContactInfo from "./ContactInfo";
 import ImageGrid from "../imageViewer/ImageGrid";
@@ -21,7 +21,11 @@ export default function Information({ rental }: InformationProps) {
     title,
     direction = { xs: "row", md: "column", lg: "row", xl: "column" },
   }: HighlightProps) => (
-    <Highlight direction={direction} style={{ padding: 0, alignContent:'space-around' }} title={title} >
+    <Highlight
+      direction={direction}
+      style={{ padding: 0, alignContent: "space-around" }}
+      title={title}
+    >
       {children}
     </Highlight>
   );
@@ -33,6 +37,11 @@ export default function Information({ rental }: InformationProps) {
   ].join(", ");
   const rentalName =
     rental.name || `${rental.address}, ${rental.city}, ${rental.state}`;
+
+  const statusText = getAvailabilityText(
+    rental.available,
+    rental.availableAt || "",
+  );
   return (
     <Paper elevation={5} sx={{ minHeight: "100%" }}>
       <Stack spacing={3} padding={2}>
@@ -103,11 +112,11 @@ export default function Information({ rental }: InformationProps) {
           </Grid>
           <Grid size={6}>
             <Highlight
-              title={rental.available ? "Available Now" : "Not Available"}
+              title={statusText.tooltip ? statusText.tooltip : statusText.text}
             >
               <CalendarMonthOutlined />
               <Font variant="h3" noWrap>
-                {rental.available ? "Available Now" : "Not Available"}
+                {statusText.text}
               </Font>
             </Highlight>
           </Grid>

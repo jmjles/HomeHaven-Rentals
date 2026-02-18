@@ -1,10 +1,11 @@
 import { ImageProps } from "next/image";
 import houses from "@/assets/landing.jpg";
+import {DateTime} from 'luxon';
 type Contact = {
   user: string;
   email: string;
 };
-
+const today = DateTime.now()
 export type RentalType = {
   id: number;
   address: string;
@@ -27,7 +28,7 @@ export type RentalType = {
   featuredImage: ImageProps["src"];
   images: ImageProps["src"][];
   available: boolean;
-  availableAt?: Date;
+  availableAt?: string;
   monthly: number;
 };
 
@@ -80,7 +81,7 @@ export const properties: RentalType[] = [
     featuredImage: houses,
     images: [houses, houses, houses, houses, houses, houses],
     monthly: 1500.0,
-    available: true,
+    available: false,
   },
   {
     id: 3,
@@ -105,7 +106,8 @@ export const properties: RentalType[] = [
     featuredImage: houses,
     images: [houses, houses, houses, houses, houses, houses],
     monthly: 1500.0,
-    available: true,
+    availableAt: today.plus({days:28}).toString(),
+    available: false,
   },
   {
     id: 4,
@@ -155,7 +157,7 @@ export const properties: RentalType[] = [
     featuredImage: houses,
     images: [houses, houses, houses, houses, houses, houses],
     monthly: 1500.0,
-    available: true,
+    available: false,
   },
   {
     id: 6,
@@ -230,7 +232,8 @@ export const properties: RentalType[] = [
     featuredImage: houses,
     images: [houses, houses, houses, houses, houses, houses],
     monthly: 1500.0,
-    available: true,
+    availableAt: today.plus({days:60}).toString(),
+    available: false,
   },
   {
     id: 9,
@@ -255,7 +258,8 @@ export const properties: RentalType[] = [
     featuredImage: houses,
     images: [houses, houses, houses, houses, houses, houses],
     monthly: 1500.0,
-    available: true,
+    availableAt: today.plus({days:13}).toString(),
+    available: false,
   },
   {
     id: 10,
@@ -330,7 +334,8 @@ export const properties: RentalType[] = [
     featuredImage: houses,
     images: [houses, houses, houses, houses, houses, houses],
     monthly: 1500.0,
-    available: true,
+    availableAt: today.plus({days:60}).toString(),
+    available: false,
   },
   {
     id: 13,

@@ -1,4 +1,5 @@
 import { animate, AnimationParams, TargetsParam } from "animejs";
+import { DateTime } from "luxon";
 
 export const toUSD = (num: number) => {
   return new Intl.NumberFormat("en-US", {
@@ -36,5 +37,32 @@ export const slideOut = () => {
     onComplete: () => animateBackBtn({ visibility: "hidden" }),
   });
 };
+export const availableNow: AvailableType = {
+  text: "Available Now",
+  color: "#25c25c",
+};
+export const getAvailabilityText = (
+  available: boolean,
+  availableAt: string,
+): AvailableType => {
+  const today = DateTime.now();
+  const availableDate = DateTime.fromISO(availableAt);
+  const { days } = availableDate.diff(today, "days").toObject();
 
-export const fadeOut = (target: TargetsParam) => animate(target, {});
+  const notAvailable: AvailableType = {
+    text: "Not Available",
+    color: "#E53838",
+  };
+  const availableSoon: AvailableType = {
+    text: "Available Soon",
+    color: "#C1BD4C",
+    tooltip: `Available in ${Math.floor(days || 0)} days`,
+  };
+
+  if (available) return availableNow;
+  if (!days || days > 30) return notAvailable;
+
+  return availableSoon;
+};
+
+type AvailableType = { text: string; tooltip?: string; color: string };

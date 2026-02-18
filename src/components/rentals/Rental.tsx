@@ -1,5 +1,5 @@
 import { RentalType } from "@/dummyData";
-import { toUSD } from "@/lib/utils";
+import { availableNow, getAvailabilityText, toUSD } from "@/lib/utils";
 import {
   Paper,
   Stack,
@@ -7,6 +7,8 @@ import {
   Grid,
   Divider,
   Box,
+  Tooltip,
+  Color,
 } from "@mui/material";
 import Image from "next/image";
 
@@ -24,8 +26,13 @@ export default function Rental({ rental, onClick }: RentalProps) {
     monthly,
     availableAt,
   } = rental;
+  const statusText = getAvailabilityText(available, availableAt || "");
+
   return (
-    <Paper onClick={() => onClick(rental)} sx={{ borderRadius: 3 }}>
+    <Paper
+      onClick={() => onClick(rental)}
+      sx={{ borderRadius: 3, cursor: "pointer" }}
+    >
       <Box position={"relative"} height={200}>
         <Image
           src={featuredImage}
@@ -34,22 +41,24 @@ export default function Rental({ rental, onClick }: RentalProps) {
           width={300}
           height={200}
         />
-        <Box
-          sx={{
-            backgroundColor: available ? "green" : "red",
-            borderTopRightRadius: 12,
-            borderTopLeftRadius: 12,
-          }}
-          position="absolute"
-          bottom={0}
-          right={0}
-          marginRight={2}
-          padding={1}
-        >
-          <Font color="white" fontWeight={600}>
-            {available ? "Available Now" : "Not Available"}
-          </Font>
-        </Box>
+        <Tooltip title={statusText.tooltip}>
+          <Box
+            sx={{
+              backgroundColor: statusText.color,
+              borderTopRightRadius: 12,
+              borderTopLeftRadius: 12,
+            }}
+            position="absolute"
+            bottom={0}
+            right={0}
+            marginRight={2}
+            padding={1}
+          >
+            <Font color="white" fontWeight={600}>
+              {statusText.text}
+            </Font>
+          </Box>
+        </Tooltip>
       </Box>
 
       <Stack padding={1}>

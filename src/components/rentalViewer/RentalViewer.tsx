@@ -12,8 +12,7 @@ export default function RentalViewer() {
   const [rentals, setRentals] = useState<RentalType[]>([]);
 
   const heightGrid: GridProps["height"] = {
-    xs: "calc(100vh - 66px)",
-    sm: "calc(100vh - 81px)",
+    xs: "calc(100vh - 81px)",
     md: "calc(100vh - 91px)",
   };
   const handleRental = (rental: RentalType) => {
