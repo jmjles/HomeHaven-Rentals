@@ -7,19 +7,18 @@ export default async function Home() {
   return (
     <Grid
       container
-      direction={"column"}
       minHeight={"100vh"}
-      height="100dvh"
+      height={"100dvh"}
       width={"100vw"}
       overflow={"hidden"}
       spacing={0}
       gap={0.1}
-      wrap="nowrap"
+      component={"main"}
     >
-      <Grid width={"100%"}>
+      <Grid width={"100%"} component={"section"}>
         <Nav />
       </Grid>
-      <Grid flex={"1 1 auto"} minHeight={0}>
+      <Grid flex={"1 1 auto"} minHeight={0} component={"section"}>
         <RentalViewer />
       </Grid>
     </Grid>

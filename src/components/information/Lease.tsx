@@ -2,7 +2,7 @@ import { RentalType } from "@/dummyData";
 import { Box, Typography as Font, Stack } from "@mui/material";
 
 export default function Lease({ terms }: LeaseProps) {
-  if (terms.length === 0) return <></>;
+  if (terms.length === 0) return null
   return (
     <Box>
       <Stack spacing={1}>

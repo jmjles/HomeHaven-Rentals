@@ -30,6 +30,7 @@ export default function Rental({ rental, onClick }: RentalProps) {
         <Image
           src={featuredImage}
           alt={`Featured image of ${address}`}
+          style={{ borderTopRightRadius: 12, borderTopLeftRadius: 12 }}
           width={300}
           height={200}
         />

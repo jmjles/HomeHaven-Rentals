@@ -1,4 +1,4 @@
-import { Box, Button, Typography as Font } from "@mui/material";
+import { Box, Button, Container, Typography as Font } from "@mui/material";
 import landing from "@/assets/landing.jpg";
 import Image from "next/image";
 
@@ -6,43 +6,47 @@ export default function Landing({ showButton, handleShow }: LandingProps) {
   return (
     <Box
       height={"100%"}
+      width={"100vw"}
       position="relative"
       color={"#FFF"}
       padding={2}
       textAlign={"center"}
     >
-      <Font variant="h2" paddingTop={"15vh"}>
-        Your Next Home Starts Here
-      </Font>
-      <Font
-        variant="h4"
-        paddingTop={"5vh"}
+      <Container
+        sx={{
+          transform: "translate(-50%,-50%)",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+        }}
       >
-        Simple renting. Real homes. No unnecessary stress.
-      </Font>
+        <Font variant="h2">Your Next Home Starts Here</Font>
+        <Font variant="h4" paddingTop={"5vh"}>
+          Simple renting. Real homes. No unnecessary stress.
+        </Font>
 
-      {showButton && (
-        <Button
-          sx={{ marginTop: "32px" }}
-          variant="contained"
-          onClick={handleShow}
+        {showButton && (
+          <Button
+            sx={{ marginTop: "32px" }}
+            variant="contained"
+            onClick={handleShow}
+          >
+            <Font variant="button">Get Started</Font>
+          </Button>
+        )}
+
+        <Font
+          variant="subtitle1"
+          padding={5}
+          textAlign={"left"}
+          display={{ xs: "none", md: "block" }}
         >
-          <Font variant="button">Get Started</Font>
-        </Button>
-      )}
+          From transparent terms to responsive support, we’re here to make
+          renting feel easy and dependable. You can focus on living your
+          life—we’ll take care of the rest.
+        </Font>
+      </Container>
 
-      <Font
-        variant="subtitle1"
-        position="absolute"
-        bottom="20vh"
-        padding={5}
-        textAlign={"left"}
-        display={{ xs: "none", md: "block" }}
-      >
-        From transparent terms to responsive support, we’re here to make renting
-        feel easy and dependable. You can focus on living your life—we’ll take
-        care of the rest.
-      </Font>
       <Image
         src={landing}
         alt="Three homes with an open sky."

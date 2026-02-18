@@ -23,7 +23,14 @@ export default function RentalViewer() {
   }, []);
 
   return (
-    <Grid container size={12} height={"100%"}>
+    <Grid
+      container
+      size={12}
+      height={"100vh"}
+      width={"100vw"}
+      overflow={"hidden"}
+      position={"relative"}
+    >
       <Grid size={{ xs: 12, lg: 6.5 }} overflow={"scroll"} height={"100%"}>
         <Rentals
           rentals={rentals}
@@ -37,7 +44,7 @@ export default function RentalViewer() {
         display={{ xs: "block", lg: "none" }}
         position={{ xs: "absolute", lg: "relative" }}
         overflow={"scroll"}
-        width={"100%"}
+        width={"100vw"}
         height={{ xs: "calc(100% - 116px)", lg: "100%" }}
         zIndex={99}
       >
@@ -48,7 +55,7 @@ export default function RentalViewer() {
         display={{ xs: "none", lg: "block" }}
         position={{ xs: "absolute", lg: "relative" }}
         overflow={"scroll"}
-        width={"100%"}
+        width={"100vw"}
         height={{ xs: "calc(100% - 116px)", lg: "100%" }}
         zIndex={99}
       >
