@@ -17,8 +17,15 @@ export const theme = createTheme({
     },
   },
   typography: {
+    fontSize: 18,
     allVariants: {
       textDecorationLine: "none",
     },
+    h1: { fontSize: "2.5rem" },
+    h2: { fontSize: "1.6rem" },
+    h3: { fontSize: "1.3rem" },
+    body1: { fontSize: "1rem" },
+    button: { fontSize: ".8rem" },
+    subtitle1: { fontSize: "1.1rem" },
   },
 });

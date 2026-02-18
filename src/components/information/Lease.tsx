@@ -6,7 +6,7 @@ export default function Lease({ terms }: LeaseProps) {
   return (
     <Box>
       <Stack spacing={1}>
-        <Font variant="h5" fontWeight={600}>
+        <Font variant="h3" fontWeight={600}>
           Terms:
         </Font>
         <ul>

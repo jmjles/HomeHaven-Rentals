@@ -53,7 +53,7 @@ export default function Rental({ rental, onClick }: RentalProps) {
       </Box>
 
       <Stack padding={1}>
-        <Font fontWeight={600} variant="h5">
+        <Font fontWeight={600} variant="h2">
           {toUSD(monthly)}/MO
         </Font>
         <Grid container spacing={1}>

@@ -9,7 +9,7 @@ export default function ContactInfo({ contact, name }: ContactInfoProps) {
           <Avatar />
         </Grid>
         <Grid>
-          <Font variant="h5">{contact.user}</Font>
+          <Font variant="h2">{contact.user}</Font>
           <Font
             component="a"
             href={`mailto:${contact.email}?subject=${name}`}

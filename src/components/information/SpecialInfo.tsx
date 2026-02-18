@@ -11,7 +11,7 @@ const SpecialInfo = ({ amenities }: SpecialInfoProps) => {
       }}
       spacing={2}
     >
-      <Font variant="h5" fontWeight={600}>
+      <Font variant="h2" fontWeight={600}>
         What's Special
       </Font>
       <Grid container spacing={2}>

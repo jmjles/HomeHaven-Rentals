@@ -20,18 +20,20 @@ export default function Landing({ showButton, handleShow }: LandingProps) {
           left: "50%",
         }}
       >
-        <Font variant="h2">Your Next Home Starts Here</Font>
-        <Font variant="h4" paddingTop={"5vh"}>
+        <Font variant="h1">Your Next Home Starts Here</Font>
+        <Font variant="h2" marginTop={"5rem"}>
           Simple renting. Real homes. No unnecessary stress.
         </Font>
 
         {showButton && (
           <Button
-            sx={{ marginTop: "32px" }}
+            sx={{ marginTop: "2rem" }}
             variant="contained"
             onClick={handleShow}
           >
-            <Font variant="button">Get Started</Font>
+            <Font variant="button">
+              <Font variant="button">Get Started</Font>
+            </Font>
           </Button>
         )}
 
@@ -39,6 +41,7 @@ export default function Landing({ showButton, handleShow }: LandingProps) {
           variant="subtitle1"
           padding={5}
           textAlign={"left"}
+          marginTop={"4rem"}
           display={{ xs: "none", md: "block" }}
         >
           From transparent terms to responsive support, we’re here to make

@@ -7,7 +7,7 @@ import {
   ShowerOutlined,
   Sunny,
 } from "@mui/icons-material";
-import { Typography as Font, Grid, Paper, Stack } from "@mui/material";
+import { Typography as Font, Grid, Paper, Stack, Tooltip } from "@mui/material";
 import Highlight, { HighlightProps } from "../highlight/Highlight";
 import { toFormattedNumber } from "@/lib/utils";
 import Lease from "./Lease";
@@ -44,10 +44,10 @@ export default function Information({ rental }: InformationProps) {
           direction={{ xs: "column", md: "row" }}
         >
           <Grid flexGrow={1}>
-            <Font variant="h4" fontWeight={600}>
+            <Font variant="h1" fontWeight={600}>
               {rental.name}
             </Font>
-            <Font variant="h4" fontWeight={800}>
+            <Font variant="h2" fontWeight={800}>
               ${rental.monthly}/MO
             </Font>
             <Font
@@ -66,7 +66,7 @@ export default function Information({ rental }: InformationProps) {
                 rental.bedrooms > 1 ? "Bedrooms" : "Bedroom"
               }`}
             >
-              <Font fontWeight={800} fontSize={36}>
+              <Font fontWeight={800} variant="h1">
                 {rental.bedrooms}
               </Font>
               <BedOutlined fontSize="large" />
@@ -76,16 +76,16 @@ export default function Information({ rental }: InformationProps) {
                 rental.bathrooms > 1 ? "Bathrooms" : "Bathroom"
               }`}
             >
-              <Font fontWeight={800} fontSize={36}>
+              <Font fontWeight={800} variant="h1">
                 {rental.bathrooms}
               </Font>
               <ShowerOutlined fontSize="large" />
             </VerticalHighlight>
             <VerticalHighlight>
-              <Font fontWeight={800} fontSize={36}>
+              <Font fontWeight={800} variant="h1">
                 {toFormattedNumber(rental.sqft)}
               </Font>
-              <Font fontSize="large" fontWeight={800}>
+              <Font fontWeight={800} variant="h2">
                 SQFT
               </Font>
             </VerticalHighlight>
@@ -94,27 +94,37 @@ export default function Information({ rental }: InformationProps) {
 
         <Grid container justifyContent="space-evenly" spacing={2}>
           <Grid size={6}>
-            <Highlight>
+            <Highlight title={rental.buildingType}>
               <HomeOutlined />
-              <Font>{rental.buildingType}</Font>
+              <Font variant="h3" noWrap>
+                {rental.buildingType}
+              </Font>
             </Highlight>
           </Grid>
           <Grid size={6}>
-            <Highlight>
+            <Highlight
+              title={rental.available ? "Available Now" : "Not Available"}
+            >
               <CalendarMonthOutlined />
-              {rental.available ? "Available Now" : "Not Available"}
+              <Font variant="h3" noWrap>
+                {rental.available ? "Available Now" : "Not Available"}
+              </Font>
             </Highlight>
           </Grid>
           <Grid size={6}>
-            <Highlight>
+            <Highlight title={rental.heating}>
               <Sunny />
-              {rental.heating}
+              <Font variant="h3" noWrap>
+                {rental.heating}
+              </Font>
             </Highlight>
           </Grid>
           <Grid size={6}>
-            <Highlight>
+            <Highlight title={rental.cooling}>
               <AcUnitOutlined />
-              {rental.cooling}
+              <Font variant="h3" noWrap>
+                {rental.cooling}
+              </Font>
             </Highlight>
           </Grid>
         </Grid>
