@@ -3,21 +3,24 @@ import { slideOut } from "@/lib/utils";
 import { ArrowBack } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
-const BackBtn = () => {
+const BackBtn = ({ hidden }: BackBtnProps) => {
   const handleBack = () => {
     slideOut();
   };
+
   return (
     <IconButton
       color="primary"
-      size="large"
+      size="small"
       sx={{ opacity: 0, visibility: "hidden" }}
       onClick={handleBack}
-      className="BackButton"
+      className={!hidden ? "BackButton" : undefined}
     >
-      <ArrowBack />
+      <ArrowBack fontSize={"inherit"} />
     </IconButton>
   );
 };
-
+type BackBtnProps = {
+  hidden?: boolean;
+};
 export default BackBtn;

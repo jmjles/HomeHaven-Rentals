@@ -6,7 +6,6 @@ export default function Landing({ showButton, handleShow }: LandingProps) {
   return (
     <Box
       height={"100%"}
-      width={"100vw"}
       position="relative"
       color={"#FFF"}
       padding={2}
@@ -41,7 +40,7 @@ export default function Landing({ showButton, handleShow }: LandingProps) {
           variant="subtitle1"
           padding={5}
           textAlign={"left"}
-          marginTop={"4rem"}
+          marginTop={"8rem"}
           display={{ xs: "none", md: "block" }}
         >
           From transparent terms to responsive support, we’re here to make

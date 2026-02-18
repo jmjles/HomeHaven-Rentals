@@ -1,7 +1,6 @@
-import { Box, Container, Grid, IconButton, Paper } from "@mui/material";
+import { Box, Container, Grid, Paper } from "@mui/material";
 import logo from "../../assets/homehaven.png";
 import Image from "next/image";
-import { ArrowBack } from "@mui/icons-material";
 import BackBtn from "./BackBtn";
 
 const Nav = () => {
@@ -18,14 +17,16 @@ const Nav = () => {
             <BackBtn />
           </Grid>
           <Grid>
-            <Box position={"relative"} height={100} width={200}>
+            <Box
+              position={"relative"}
+              height={{ xs: 50, sm: 65, md: 75 }}
+              width={{ xs: 125, sm: 140, md: 150}}
+            >
               <Image src={logo} alt="HomeHaven Logo" fill />
             </Box>
           </Grid>
           <Grid display={{ lg: "none" }} visibility="hidden">
-            <IconButton color="primary" size="large">
-              <ArrowBack />
-            </IconButton>
+            <BackBtn hidden />
           </Grid>
         </Grid>
       </Container>

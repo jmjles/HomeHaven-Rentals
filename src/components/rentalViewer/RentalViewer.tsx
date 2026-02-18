@@ -2,7 +2,7 @@
 import Rentals from "@/components/rentals/Rentals";
 import { RentalType } from "@/dummyData";
 import { getRentals } from "@/lib/rental/rentalRequests";
-import { Grid } from "@mui/material";
+import { Grid, GridProps } from "@mui/material";
 import { useEffect, useState } from "react";
 import InformationPanel from "./InformationPanel";
 import { slideIn } from "@/lib/utils";
@@ -11,6 +11,11 @@ export default function RentalViewer() {
   const [selectedRental, setSelectedRental] = useState<RentalType>();
   const [rentals, setRentals] = useState<RentalType[]>([]);
 
+  const heightGrid: GridProps["height"] = {
+    xs: "calc(100vh - 66px)",
+    sm: "calc(100vh - 81px)",
+    md: "calc(100vh - 91px)",
+  };
   const handleRental = (rental: RentalType) => {
     slideIn(".InformationPanel");
     setSelectedRental(rental);
@@ -26,7 +31,7 @@ export default function RentalViewer() {
     <Grid
       container
       size={12}
-      height={"100vh"}
+      height={heightGrid}
       width={"100vw"}
       overflow={"hidden"}
       position={"relative"}
@@ -45,7 +50,7 @@ export default function RentalViewer() {
         position={{ xs: "absolute", lg: "relative" }}
         overflow={"scroll"}
         width={"100vw"}
-        height={{ xs: "calc(100% - 116px)", lg: "100%" }}
+        height={"100%"}
         zIndex={99}
       >
         <InformationPanel rental={selectedRental} />
