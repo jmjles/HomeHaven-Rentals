@@ -21,7 +21,7 @@ export default function Information({ rental }: InformationProps) {
     title,
     direction = { xs: "row", md: "column", lg: "row", xl: "column" },
   }: HighlightProps) => (
-    <Highlight direction={direction} style={{ padding: 0 }} title={title}>
+    <Highlight direction={direction} style={{ padding: 0, alignContent:'space-around' }} title={title} >
       {children}
     </Highlight>
   );
@@ -69,7 +69,7 @@ export default function Information({ rental }: InformationProps) {
               <Font fontWeight={800} variant="h1">
                 {rental.bedrooms}
               </Font>
-              <BedOutlined fontSize="large" />
+              <BedOutlined fontSize="medium" />
             </VerticalHighlight>
             <VerticalHighlight
               title={`${rental.bathrooms} ${
@@ -79,13 +79,13 @@ export default function Information({ rental }: InformationProps) {
               <Font fontWeight={800} variant="h1">
                 {rental.bathrooms}
               </Font>
-              <ShowerOutlined fontSize="large" />
+              <ShowerOutlined fontSize="medium" />
             </VerticalHighlight>
             <VerticalHighlight>
               <Font fontWeight={800} variant="h1">
                 {toFormattedNumber(rental.sqft)}
               </Font>
-              <Font fontWeight={800} variant="h2">
+              <Font fontWeight={800} variant="h3">
                 SQFT
               </Font>
             </VerticalHighlight>

@@ -29,13 +29,14 @@ const ImageViewer = (props: ImageViewerProps) => {
         sx={{ transform: "translate(-50%,-50%)" }}
       >
         <Box
+        textAlign={"right"}
           position={{ xs: "absolute", md: "initial" }}
-          left={{ xs: 22, md: 0 }}
+          right={{ xs: 22, md: 0 }}
           top={{ xs: 12, md: 0 }}
           zIndex={99}
         >
-          <Fab onClick={props.close} color="secondary">
-            <Close />
+          <Fab onClick={props.close} color="secondary" size="small">
+            <Close fontSize="small" />
           </Fab>
         </Box>
 
@@ -52,8 +53,8 @@ const ImageViewer = (props: ImageViewerProps) => {
               left={{ xs: 22, md: 0 }}
               zIndex={99}
             >
-              <Fab onClick={handleBack} disabled={backDisabled} color="info">
-                <ArrowBack />
+              <Fab onClick={handleBack} disabled={backDisabled} color="info" size="small">
+                <ArrowBack fontSize="small"/>
               </Fab>
             </Box>
 
@@ -71,8 +72,8 @@ const ImageViewer = (props: ImageViewerProps) => {
               right={{ xs: 22, md: 0 }}
               zIndex={99}
             >
-              <Fab onClick={handleNext} disabled={nextDisabled} color="info">
-                <ArrowForward />
+              <Fab onClick={handleNext} disabled={nextDisabled} color="info" size="small">
+                <ArrowForward fontSize="small"/>
               </Fab>
             </Box>
           </Grid>
